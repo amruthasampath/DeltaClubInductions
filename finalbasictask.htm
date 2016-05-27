@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+function disp()
+{
+var v=new Date;
+var d=new Date(2016,6,11,0,0,0,0);
+var day=Math.floor((d-v)/(86400*1000));
+var hours=Math.floor(((d-v)%(86400*1000))/(60*1000*60));
+var x=((d-v)%(86400*1000))%(60*1000*60);
+var minutes=Math.floor(x/(60*1000));
+var seconds=Math.floor((x%(60*1000))/1000);
+var ms=(x%(60*1000))%1000;
+document.getElementById("de").innerHTML="TIME TO START THE THIRD SEMESTER<br />"
++day+":"+hours+":"+minutes+":"+seconds;
+setTimeout("disp()",1000);
+}
+</script>
+</head>
+<body onload="disp()" style="background-color:lightyellow;">
+<h1 style="color:blue;font-family:courier;font-size:400%;text-align:center;">NITT COUNTDOWN TIMER !!!!</h1>
+<img class="landscape qtext_image zoomable_in zoomable_in_feed lazy_loaded lazy_loading" 
+src="https://qph.is.quoracdn.net/main-qimg-fa83ddd68d104d0be5131a65ea9bae07?convert_to_webp=true" 
+master_src="https://qph.is.quoracdn.net/main-qimg-804806bb1b581c4eb08456ebb87c1043?convert_to_webp=true" 
+master_w="1260" master_h="920" style="opacity: 1; visibility: visible;">
+<img class="irc_mut iRibv8cO00sM-HwpH6ZlgJaI" 
+alt="" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ1lYjECi0YroTbnzHLiGIwPqm6KAzTzBuC1d52zGtugNmueh4P" 
+width="304" height="243" style="margin-right: 75px;">
+<img class="irc_mi i1y89w3eJhxU-pQOPx8XEepE"
+ alt="" style="margin-right: 37px;" 
+src="https://www.asme.org/getmedia/c2c8ea5a-b690-4ba7-92bb-34bd1432862b/book_guide_hero_books.aspx" 
+width="304" height="320">
+<div style="color:red;font-family:courier;font-size:200%;text-align:center;" id="de"></div>
+</body>
+</html>

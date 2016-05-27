@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+var x=0;
+function mystart()
+{
+x=0;
+ myvar=setInterval(function(){disp()},1000);
+}
+function myStop()
+{
+clearInterval(myvar);
+}
+
+function disp()
+{
+var v=new Date;
+var year=document.getElementById("yr").value;
+var mon=document.getElementById("mn").value-1;
+var date=document.getElementById("dt").value;
+var hour=document.getElementById("hr").value;
+var min=document.getElementById("min").value;
+var seconds=document.getElementById("sec").value;
+if(x!=1)
+ d=new Date(year,mon,date,hour,min,seconds,0);
+else
+d=new Date();
+
+
+
+
+var day=Math.floor((d-v)/(86400*1000));
+var hours=Math.floor(((d-v)%(86400*1000))/(60*1000*60));
+var x=((d-v)%(86400*1000))%(60*1000*60);
+var minutes=Math.floor(x/(60*1000));
+var seconds=Math.floor((x%(60*1000))/1000);
+var ms=(x%(60*1000))%1000;
+document.getElementById("de").innerHTML="TIME LEFT<br />"
++day+"DAYS:"+hours+"HOURS:"+minutes+"MINS:"+seconds+"SECONDS";
+}
+function myfunc()
+{
+document.getElementById("rt").reset();
+document.getElementById("de").innerHTML="TIME LEFT<br />"
++0+"DAYS:"+0+"HOURS:"+0+"MINS:"+0+"SECONDS";
+clearInterval(myvar);
+
+}
+
+</script>
+</head>
+<body  style="background-color:lightyellow;">
+<h1 style="color:blue;font-family:courier;font-size:400%;text-align:center;">
+A SAMPLE COUNTDOWN TIMER !!!!</h1>
+<div style="color:red;font-family:courier;font-size:200%;text-align:center;" id="de"></div>
+<p>CAUTION:Reset sets time left to negative invalid value!!!Proceed with start .</p>
+<form id="rt">
+ENTER YEAR:<input  id="yr" type="text" name="year" placeholder="yyyy">
+<br>
+ENTER MONTH:<input  id="mn" type="text" name="month" placeholder="mm">
+<br>
+ENTER DATE:<input  id="dt" type="text" name="date" placeholder="dd">
+<br>
+ENTER HOUR:<input  id="hr" type="text" name="hour" placeholder="hh">
+<br>
+ENTER MINUTES:<input  id="min" type="text" name="minutes" placeholder="nn">
+<br>
+ENTER SECONDS:<input  id="sec" type="text" name="seconds" placeholder="ss" >
+<br>
+<img style="margin-right:37px;" 
+src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRVmAkTKaHUeetk2cSiC_ZiNRCHc2dr5w_7w99LxrkWnH9ySr55s9baBV52"
+class="irc_mut i4UST_sfRzWg-HwpH6ZlgJaI" alt="" height="300" width="180">
+<br>
+<input type="button" value="START" onclick="mystart()">
+<input type="button" value="STOP"  onclick="myStop()">
+<input type="button" value="RESET" onclick="myfunc()">
+</body>
+</html>
