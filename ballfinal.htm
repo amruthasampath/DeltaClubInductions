@@ -1,0 +1,67 @@
+ <html>
+   <head>
+     <script type="text/javascript">
+var animation;
+       var centerX=25;
+       var centerY=25;
+       var radius=20;
+       var boardX=1000;
+       var boardY=500;
+       var ballDx,ballDy; 
+
+
+         
+
+
+       
+       function  drawBall()
+       {
+        
+         var content=document.getElementById("BALL");
+       var me=content.getContext("2d");
+       me.clearRect(0,0,content.width,content.height);
+       centerX= centerX + ballDx;
+       centerY= centerY + ballDy;
+       me.beginPath();
+       me.arc(centerX,centerY,radius,0,Math.PI*2,false);
+       me.stroke();
+       me.fillStyle="orange";
+       me.fill();
+       me.lineWidth="2";
+       me.lineCap="round";
+       me.strokeStyle="black";
+       me.stroke();
+         if(centerY>boardY-radius|| centerY-radius<0)
+           {
+             ballDy=0;ballDx=0;
+           }
+         if(centerX>boardX-radius|| centerX<radius)
+           {
+             ballDx=0;ballDy=0;
+           }
+       }
+       function animate()
+        {
+ballDx=0;//if it's assigned as dcument.getElementById("tt").value,it is not working.
+ballDy=4;//if it's assigned as dcument.getElementById("dd").value,it is not working.
+
+       clearInterval(animation);
+       setInterval(drawBall,100);
+       }
+</script>
+    </head>
+    <body style="background-color:gray" >
+<h1 style="color:blue;font-family:courier;font-size:200%;text-align:center;">FALLING OF BALL</h1>
+      <form>
+        ENTER X VELOCITY:<input id="tt" type="text" name="xvel">
+<br>
+ENTER Y VELOCITY:<input  id="dd" type="text" name="yvel">
+<br >
+<input type="button" value="RUN THE BALL" onclick="animate()">
+
+        </form>
+      <canvas id="BALL" width="1000" height="500" style="border-style:inset;background-color:lightgray; border-width:5px;">
+     
+      </canvas>
+    </body>
+  </html>
